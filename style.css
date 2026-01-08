@@ -1,0 +1,59 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #C7E8F3;
+  color: #2B2D42;
+}
+
+.input-div{
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  height: 60px;
+  align-items: center;
+}
+
+.display-task-area{
+  margin-top: 20px;
+
+}
+
+.date-input,
+.task-input{
+  font-size: 17px;
+  padding: 5px;
+  padding-left: 8px;
+  border: none;
+  background-color: #476A6F;
+  border-radius: 12px;
+}
+
+.task-input{
+  height: 35px;
+  border-radius: 12px;
+  color: white;
+}
+
+.task-input::placeholder{
+  color: white;
+}
+
+.task-input{}
+
+.date-input{
+  height: 37px;
+  font-size: 17px
+}
+
+input[type="datetime-local"]{
+  color:white;
+}
+
+.add-btn{
+  padding: 12px 35px;
+  font-size: 15px;
+  background-color: #32DE8A;
+  color: black;
+  border: solid 1.5px black;
+  border-radius: 24px;
+}
