@@ -1,16 +1,21 @@
-const toDoArray = JSON.parse(localStorage.getItem('ToDo')) === null ? [] : JSON.parse(localStorage.getItem('ToDo')) && renderTaskArray();
+const toDoArray = JSON.parse(localStorage.getItem('ToDo')) === null ? [] : JSON.parse(localStorage.getItem('ToDo'));
+const taskName = document.querySelector('.js-task-input');
+const dueDate = document.querySelector('.js-date-input');
+
+renderTaskArray()
 
 
 function addTask () {
   const task = {};
-  const taskName = document.querySelector('.js-task-input').value;
-  const dueDate = document.querySelector('.js-date-input').value;
-  task.taskName = taskName;
-  task.dueDate = dueDate;
+  task.taskName = taskName.value;
+  task.dueDate = dueDate.value;
   toDoArray.unshift(task);
+  taskName.value = '';
+  dueDate.value = '';
   saveToStorage();
   renderTaskArray()
 }
+
 
 function saveToStorage() {
   localStorage.setItem('ToDo', JSON.stringify(toDoArray));
@@ -18,19 +23,29 @@ function saveToStorage() {
 
 function renderTaskArray() {
   let html = '';
-  const taskArray = JSON.parse(localStorage.getItem('ToDo'));
-  taskArray.forEach((task) => {
+  toDoArray.forEach((task) => {
     html += `
       <div>
         ${task.taskName}
         ${formatDate(task.dueDate)}
+        <button class="js-edit-button">Edit</button>
         <button>Complete</button>
-        <button>Delete</button>
+        <button class="js-task-delete-button">Delete</button>
       </div>
     `
   })
   document.querySelector('.js-display-task-area').innerHTML = html;
+
+  document.querySelectorAll('.js-task-delete-button').
+  forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      toDoArray.splice(index,1);
+      saveToStorage()
+      renderTaskArray()
+    })
+  })
 }
+
 
 function formatDate(datevalue) {
   const date = new Date(datevalue);
