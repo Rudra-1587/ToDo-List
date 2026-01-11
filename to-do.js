@@ -23,12 +23,13 @@ function saveToStorage() {
 
 function renderTaskArray() {
   let html = '';
-  toDoArray.forEach((task) => {
+  toDoArray.forEach((task, index) => {
     html += `
-      <div>
+      <div class="task-container js-task-container-${index}">
         ${task.taskName}
         ${formatDate(task.dueDate)}
         <button class="js-edit-button">Edit</button>
+        <button class="save-button js-save-button">Save</button>
         <button>Complete</button>
         <button class="js-task-delete-button">Delete</button>
       </div>
@@ -44,7 +45,32 @@ function renderTaskArray() {
       renderTaskArray()
     })
   })
+
+  document.querySelectorAll('.js-edit-button').forEach((edit, index) => {
+    const editTask = toDoArray[index];
+    edit.addEventListener('click', () => {
+      taskName.value = editTask.taskName;
+      dueDate.value = editTask.dueDate;
+      document.querySelector(`.js-task-container-${index}`).classList.add('js-is-editing')
+    })
+  })
+
+  document.querySelectorAll('.js-save-button').
+    forEach((save, index) => {
+      const saveTask = toDoArray[index];
+      save.addEventListener('click', () => {
+        saveTask.taskName = taskName.value;
+        saveTask.dueDate = dueDate.value;
+        saveToStorage();
+        taskName.value = '';
+        dueDate.value = '';
+        renderTaskArray(); 
+        document.querySelector(`.js-task-container-${index}`).classList.remove('js-is-editing')
+      })
+    })
 }
+
+
 
 
 function formatDate(datevalue) {

@@ -57,3 +57,12 @@ input[type="datetime-local"]{
   border: solid 1.5px black;
   border-radius: 24px;
 }
+
+.js-is-editing .save-button{
+  display: inline-block;
+}
+
+.save-button{
+  display: none;
+}
+
