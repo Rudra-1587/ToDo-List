@@ -1,10 +1,4 @@
-body{
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #C7E8F3;
-  color: #2B2D42;
-}
-
-.input-div{
+input-div{
   max-width: 1000px;
   display: flex;
   flex-direction: row;

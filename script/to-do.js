@@ -1,11 +1,8 @@
-const toDoArray = JSON.parse(localStorage.getItem('ToDo')) === null ? [] : JSON.parse(localStorage.getItem('ToDo'));
-
+export const toDoArray = JSON.parse(localStorage.getItem('ToDo')) === null ? [] : JSON.parse(localStorage.getItem('ToDo'));
 const taskName = document.querySelector('.js-task-input');
 const dueDate = document.querySelector('.js-date-input');
 
-renderTaskArray()
-
-function addTask () {
+export function addTask () {
   const task = {};
   task.taskName = taskName.value;
   task.dueDate = dueDate.value;
@@ -17,7 +14,7 @@ function addTask () {
   renderTaskArray()
 }
 
-function formatDate(datevalue) {
+export function formatDate(datevalue) {
   const date = new Date(datevalue);
   const formatted = date.toLocaleString("en-IN", {
     day: "2-digit",
@@ -40,13 +37,11 @@ function saveEdit(task, index) {
   document.querySelector(`.js-task-container-${index}`).classList.remove('js-is-editing');
 }
 
-
-
 function saveToStorage() {
   localStorage.setItem('ToDo', JSON.stringify(toDoArray));
 }
 
-function renderTaskArray() {
+export function renderTaskArray() {
   let html = '';
   toDoArray.filter((task) => {
     return !task.done;
@@ -101,8 +96,3 @@ function renderTaskArray() {
     console.log(toDoArray)
 }
 
-
-document.querySelector('.js-add-btn').
-  addEventListener('click', () => {
-    addTask();
-  })
