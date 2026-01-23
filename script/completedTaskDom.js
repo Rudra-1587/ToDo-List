@@ -1,4 +1,4 @@
-import { cmplTaskArray } from "./completedTask.js";
+import { cmplTaskArray, saveToCmplStorage } from "./completedTask.js";
 import {formatDate} from "./to-do.js";
 
 function renderCompleteTask() {
@@ -8,11 +8,25 @@ function renderCompleteTask() {
       <div class="task-container js-task-container-${index}">
         ${task.taskName}
         ${formatDate(task.dueDate)}
-        <button class="js-task-delete-button">Delete</button>
+        <button class="js-task-delete-cmpl">Delete</button>
       </div>
     `;
   })
-  document.querySelector('.js-completed-task-list').innerHTML = html;
+  if(html === '') {
+    document.querySelector('.js-completed-task-list').innerText = "Nothing To Show Here" 
+  }
+  else{
+    document.querySelector('.js-completed-task-list').innerHTML = html;
+  }
+
+  document.querySelectorAll('.js-task-delete-cmpl').
+    forEach((link, index) => {
+      link.addEventListener('click', () => {
+        cmplTaskArray.splice(index, 1);
+        saveToCmplStorage();
+        renderCompleteTask();
+      })
+    })
 }
 
 renderCompleteTask();

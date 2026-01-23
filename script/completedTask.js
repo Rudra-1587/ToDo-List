@@ -3,5 +3,3 @@ export const cmplTaskArray = JSON.parse(localStorage.getItem('ToDoCmpl')) === nu
 export function saveToCmplStorage() {
   localStorage.setItem('ToDoCmpl', JSON.stringify(cmplTaskArray));
 }
-
-console.log(cmplTaskArray)

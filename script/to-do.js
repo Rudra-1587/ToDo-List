@@ -59,7 +59,13 @@ export function renderTaskArray() {
       </div>
     `
   })
-  document.querySelector('.js-display-task-area').innerHTML = html;
+   if(html === '') {
+    document.querySelector('.js-display-task-area').innerHTML = " No Task is Due"
+  }
+  else{
+    document.querySelector('.js-display-task-area').innerHTML = html;
+  }
+
 
   document.querySelectorAll('.js-task-delete-button').
   forEach((btn, index) => {
@@ -98,6 +104,5 @@ export function renderTaskArray() {
         renderTaskArray();
       })
     })
-    console.log(toDoArray)
 }
 
