@@ -1,19 +1,7 @@
-import {toDoArray, formatDate} from "./to-do.js";
+export const cmplTaskArray = JSON.parse(localStorage.getItem('ToDoCmpl')) === null ? [] : JSON.parse(localStorage.getItem('ToDoCmpl'));
 
-function renderCompleteTask() {
-  let html = '';
-  toDoArray.filter(task => task.done)
-    .forEach((task, index) => {
-      html += `
-        <div class="task-container js-task-container-${index}">
-          ${task.taskName}
-          ${formatDate(task.dueDate)}
-          <button class="js-task-delete-button">Delete</button>
-        </div>
-      `;
-
-      document.querySelector('.js-task-list').innerHTML = html;
-    })
+export function saveToCmplStorage() {
+  localStorage.setItem('ToDoCmpl', JSON.stringify(cmplTaskArray));
 }
 
-renderCompleteTask()
+console.log(cmplTaskArray)

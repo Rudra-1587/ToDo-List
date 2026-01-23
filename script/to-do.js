@@ -1,3 +1,5 @@
+import {cmplTaskArray , saveToCmplStorage} from "./completedTask.js";
+
 export const toDoArray = JSON.parse(localStorage.getItem('ToDo')) === null ? [] : JSON.parse(localStorage.getItem('ToDo'));
 const taskName = document.querySelector('.js-task-input');
 const dueDate = document.querySelector('.js-date-input');
@@ -89,6 +91,9 @@ export function renderTaskArray() {
     forEach((comp, index) => {
       comp.addEventListener('click', () => { 
         toDoArray[index].done = true;
+        cmplTaskArray.push(toDoArray[index]);
+        saveToCmplStorage();
+        toDoArray.splice(index, 1);
         saveToStorage();
         renderTaskArray();
       })

@@ -5,5 +5,9 @@ document.querySelector('.js-add-btn').
     addTask();
   })
 
-renderTaskArray()
+document.querySelector('.js-complete-task-page').
+  addEventListener('click', () => {
+    window.location.href = "../ToDo List/completedTask.html";
+  })
 
+renderTaskArray()

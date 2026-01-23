@@ -60,3 +60,8 @@ input[type="datetime-local"]{
   display: none;
 }
 
+.complete-task-page-link{
+  color: blue;
+  cursor: pointer;
+}
+
