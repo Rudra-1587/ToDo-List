@@ -49,6 +49,20 @@ body {
 }
 
 @media (max-width: 600px) {
+  .completed-task-list {
+    min-height: 140px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .completed-task-list {
+    min-height: 140px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
   .header-text {
     font-size: 18px;
     margin: 12px 0 16px;
