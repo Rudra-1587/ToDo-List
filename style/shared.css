@@ -23,6 +23,38 @@ body {
   max-width: 520px;
 }
 
+.cmpl-div{
+  display: flex;
+  flex-direction: column;
+  align-items:center ;
+}
+
+.header-text {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin: 16px 0 20px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.header-text::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: #ffffff;
+  margin: 8px auto 0;
+  opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+  .header-text {
+    font-size: 18px;
+    margin: 12px 0 16px;
+  }
+}
+
 /* ========= TASK CONTAINER ========= */
 .task-container {
   background: #020617;
