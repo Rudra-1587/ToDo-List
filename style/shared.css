@@ -133,6 +133,11 @@ body {
     justify-content: space-between;
   }
 
+  .Cmpl-delete-button{
+    padding: 6px 8px;
+    white-space: nowrap;
+  }
+
   .task-text {
     flex: 1;
   }
