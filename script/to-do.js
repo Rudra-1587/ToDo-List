@@ -50,12 +50,14 @@ export function renderTaskArray() {
   }).forEach((task, index) => {
     html += `
       <div class="task-container js-task-container-${index}">
-        ${task.taskName}
-        ${formatDate(task.dueDate)}
-        <button class="js-edit-button">Edit</button>
+        <div class="task-text">
+          <span class="task-name">${task.taskName}</span>
+          <span class="task-date">${formatDate(task.dueDate)}</span>
+        </div>
+        <button class="edit-Button js-edit-button">Edit</button>
         <button class="save-button js-save-button">Save</button>
-        <button class="js-task-delete-button">Delete</button>
-        <button class=" complete-button js-task-complete-button">✅</button>
+        <button class="delete-button js-task-delete-button">Delete</button>
+        <button class="complete-button js-task-complete-button">✅</button>
       </div>
     `
   })

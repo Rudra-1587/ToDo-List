@@ -1,67 +1,101 @@
-input-div{
-  max-width: 1000px;
+ /* ========= HEADER ========= */
+.header-todo {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* ========= INPUT AREA ========= */
+.input-div {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
-  height: 60px;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
 }
 
-.display-task-area{
-  margin-top: 20px;
-
-}
-
-.date-input,
-.task-input{
-  font-size: 17px;
-  padding: 5px;
-  padding-left: 8px;
+.task-input,
+.date-input {
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
   border: none;
-  background-color: #476A6F;
-  border-radius: 12px;
+  outline: none;
+  background: #020617;
+  color: #e5e7eb;
 }
 
-.task-input{
-  height: 35px;
-  border-radius: 12px;
-  color: white;
+.task-input:focus,
+.date-input:focus {
+  outline: 2px solid #38bdf8;
 }
-
-.task-input::placeholder{
-  color: white;
-}
-
-.task-input{}
 
 .date-input{
-  height: 37px;
-  font-size: 17px
+  color-scheme: dark;
 }
 
-input[type="datetime-local"]{
-  color:white;
-}
-
-.add-btn{
-  padding: 12px 35px;
-  font-size: 15px;
-  background-color: #32DE8A;
-  color: black;
-  border: solid 1.5px black;
-  border-radius: 24px;
-}
-
-.js-is-editing .save-button{
-  display: inline-block;
-}
-
-.save-button{
-  display: none;
-}
-
-.complete-task-page-link{
-  color: blue;
+/* ========= ADD BUTTON ========= */
+.add-btn {
+  background: #38bdf8;
+  color: #020617;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
   cursor: pointer;
 }
 
+/* ========= LINK ========= */
+.complete-task-page-link {
+  text-align: right;
+  font-size: 0.85rem;
+  color: #38bdf8;
+  cursor: pointer;
+}
+
+/* ========= TASK LIST ========= */
+.display-task-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* ========= BUTTON COLORS ========= */
+.edit-Button {
+  background: #facc15;
+  color: #020617;
+}
+
+.save-button {
+  background: #22c55e;
+  color: #020617;
+}
+
+.delete-button {
+  background: #ef4444;
+  color: #fff;
+}
+
+.complete-button {
+  background: #38bdf8;
+  color: #020617;
+}
+
+/* ========= DESKTOP ========= */
+@media (min-width: 768px) {
+  .input-div {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .task-input {
+    flex: 2;
+  }
+
+  .date-input {
+    flex: 1;
+  }
+
+  .add-btn {
+    flex: 0.6;
+  }
+}

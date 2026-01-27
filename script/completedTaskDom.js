@@ -6,9 +6,11 @@ function renderCompleteTask() {
   cmplTaskArray.forEach((task, index) => {
     html += `
       <div class="task-container js-task-container-${index}">
-        ${task.taskName}
-        ${formatDate(task.dueDate)}
-        <button class="js-task-delete-cmpl">Delete</button>
+        <div class="task-text">
+          <span class="task-name">${task.taskName}</span>
+          <span class="task-date">${formatDate(task.dueDate)}</span>
+        </div>
+        <button class="Cmpl-delete-button js-task-delete-cmpl">Delete</button>
       </div>
     `;
   })
