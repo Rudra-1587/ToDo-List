@@ -1,4 +1,3 @@
-/* ========= RESET ========= */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +5,6 @@
   font-family: system-ui, sans-serif;
 }
 
-/* ========= BASE ========= */
 body {
   min-height: 100vh;
   background: #0f172a;
@@ -16,7 +14,6 @@ body {
   justify-content: center;
 }
 
-/* ========= MAIN WRAPPER ========= */
 .main-div,
 .completed-task-list {
   width: 100%;
@@ -73,7 +70,6 @@ body {
   }
 }
 
-/* ========= TASK CONTAINER ========= */
 .task-container {
   background: #020617;
   padding: 0.8rem;
@@ -83,7 +79,6 @@ body {
   gap: 0.6rem;
 }
 
-/* ========= TASK TEXT ========= */
 .task-text {
   flex: 1 1 100%;
   line-height: 1.4;
@@ -100,7 +95,6 @@ body {
   opacity: 0.7;
 }
 
-/* ========= TASK BUTTONS ========= */
 .task-container button {
   padding: 0.45rem 0.7rem;
   border-radius: 8px;
@@ -109,20 +103,17 @@ body {
   font-size: 0.85rem;
 }
 
-/* ========= COMPLETED PAGE ========= */
 .completed-task-list {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
 }
 
-/* completed delete button */
 .Cmpl-delete-button {
   background: #ef4444;
   color: #fff;
 }
 
-/* ========= DESKTOP ========= */
 @media (min-width: 768px) {
   body {
     padding: 2rem;
